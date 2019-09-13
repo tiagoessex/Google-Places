@@ -50,4 +50,5 @@ except Exception as e:
 # Notes: 
 * Only uses **Google** services.
 * Each call requires one API call.
-* Máx number of returned places: XXX
+* Máx number of returned places per API call: 20
+* If total > 20, then there's going to be a 2 seconds delay, for each API call. If not, a **INVALID_REQUEST** would be throwed.
