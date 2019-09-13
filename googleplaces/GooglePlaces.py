@@ -22,7 +22,7 @@ def getAllPlaces(key = None, latitude = None, longitude = None, radius = 500, ty
 		url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken={}&key={}".format(token, key)
 		time.sleep(2)	# necessary, otherwise INVALID_REQUEST
 	else:
-		if len(types) == 0:
+		if type and type !='':
 			url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={},{}&radius={}&key={}".format(latitude, longitude, radius, key)
 		else:
 			url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={},{}&radius={}&type={}&key={}".format(latitude, longitude, radius, type, key)
