@@ -16,7 +16,7 @@ logger.addHandler(ch)
 
 
 
-def getAllPlaces(key = None, latitude = None, longitude = None, radius = 500, types=['restaurant','food'], total = 20, token = None):
+def getAllPlaces(key = None, latitude = None, longitude = None, radius = 500, types=['restaurant'], total = 20, token = None):
 
 	if token:
 		url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken={}&key={}".format(token, key)
