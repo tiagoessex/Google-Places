@@ -16,7 +16,7 @@ logger.addHandler(ch)
 
 
 
-def getAllPlaces(key = None, latitude = None, longitude = None, radius = 500, types=['restaurant'], total = 20, token = None):
+def getAllPlaces(key = None, latitude = None, longitude = None, radius = 500, type='restaurant', total = 20, token = None):
 
 	if token:
 		url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken={}&key={}".format(token, key)
@@ -25,7 +25,7 @@ def getAllPlaces(key = None, latitude = None, longitude = None, radius = 500, ty
 		if len(types) == 0:
 			url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={},{}&radius={}&key={}".format(latitude, longitude, radius, key)
 		else:
-			url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={},{}&radius={}&type={}&key={}".format(latitude, longitude, radius, ','.join(types), key)
+			url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={},{}&radius={}&type={}&key={}".format(latitude, longitude, radius, type, key)
 
 	results = requests.get(url)
 
@@ -76,7 +76,7 @@ def getAllPlaces(key = None, latitude = None, longitude = None, radius = 500, ty
 	temp = abs(len(all_data) - total)
 
 	if temp > 0 and results.get('next_page_token'):
-		return all_data + getAllPlaces(key, latitude, longitude, radius, types, temp, results.get('next_page_token'))
+		return all_data + getAllPlaces(key, latitude, longitude, radius, type, temp, results.get('next_page_token'))
 	else:
 		return all_data
 
