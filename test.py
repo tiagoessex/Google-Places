@@ -5,7 +5,7 @@ print (googleplaces.__version__)
 
 try:
 	a = googleplaces.getAllPlaces(
-			key = 'xxxxxxxxxxxxxxxxxxxxxx', 
+			key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx', 
 			latitude = 41.146057, 
 			longitude = -8.605268, 
 			radius = 500, 

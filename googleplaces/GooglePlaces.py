@@ -16,16 +16,20 @@ logger.addHandler(ch)
 
 
 
-def getAllPlaces(key = None, latitude = None, longitude = None, radius = 500, type='restaurant', total = 20, token = None):
+def getAllPlaces(key = None, latitude = None, longitude = None, radius = 500, type=None, total = 20, token = None):
 
 	if token:
 		url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?pagetoken={}&key={}".format(token, key)
 		time.sleep(2)	# necessary, otherwise INVALID_REQUEST
 	else:
-		if type and type !='':
+		if not type or len(type) == 0:
 			url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={},{}&radius={}&key={}".format(latitude, longitude, radius, key)
 		else:
 			url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={},{}&radius={}&type={}&key={}".format(latitude, longitude, radius, type, key)
+
+	print (url)
+	exit()
+
 
 	results = requests.get(url)
 
