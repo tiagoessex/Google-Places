@@ -27,10 +27,6 @@ def getAllPlaces(key = None, latitude = None, longitude = None, radius = 500, ty
 		else:
 			url = "https://maps.googleapis.com/maps/api/place/nearbysearch/json?location={},{}&radius={}&type={}&key={}".format(latitude, longitude, radius, type, key)
 
-	print (url)
-	exit()
-
-
 	results = requests.get(url)
 
 	results = results.json()
