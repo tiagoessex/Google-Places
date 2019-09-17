@@ -21,7 +21,7 @@ Version: 0.0.1
 * open_now (true|false)
 * rating
 
-# Example
+# Example - get 10 sushi restaurants and tascas in a 500m radius from (41.146057,-8.605268)
 
 ```python
 
@@ -35,6 +35,7 @@ try:
 			longitude = -8.605268, 
 			radius = 500, 
 			type='restaurant',
+			keywords=['sushi','tasca'],
 			total = 10)
 
 	for i in a:

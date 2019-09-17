@@ -5,12 +5,13 @@ print (googleplaces.__version__)
 
 try:
 	a = googleplaces.getAllPlaces(
-			key = 'xxxxxxxxxxxxxxxxxxxxxxxxxxx', 
+			key = 'xxxxxxxxxxxxxxxxxxxxxxxx', 
 			latitude = 41.146057, 
 			longitude = -8.605268, 
 			radius = 500, 
 			type='restaurant',
-			total = 10)
+			keywords=['sushi'],
+			total = 20)
 
 	for i in a:
 		print (i)
