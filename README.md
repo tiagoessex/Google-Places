@@ -49,7 +49,7 @@ except Exception as e:
 
 # Notes: 
 * Only uses **Google** services.
-* Each call requires one API call.
+* **Each API call cost 0.032 USD --- USE THIS SERVICE VERY CAREFULLY**.
 * Máx number of returned places per API call: 20
 * If total > 20, then there's going to be a 2 seconds delay, for each API call. If not, a **INVALID_REQUEST** would be throwed.
-* Set type to None, to retrieve any type
+* Set type to None or '', to retrieve any type
