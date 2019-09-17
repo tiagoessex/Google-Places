@@ -70,10 +70,10 @@ def getAllPlaces(key = None, latitude = None, longitude = None, radius = 500, ty
 					tt.append(i)
 			data['types'] = tt
 			all_data.append(data)
-			if abs(len(all_data) - total) <= 0:
+			if total - len(all_data) <= 0:
 				break;
 	
-	temp = abs(len(all_data) - total)
+	temp = total - len(all_data)
 
 	if temp > 0 and results.get('next_page_token'):
 		return all_data + getAllPlaces(key, latitude, longitude, radius, type, temp, results.get('next_page_token'))
