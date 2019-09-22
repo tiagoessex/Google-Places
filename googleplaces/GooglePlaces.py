@@ -15,6 +15,18 @@ logger.addHandler(ch)
 '''
 
 
+def dataStruct():
+	result = {}
+	result['latitude'] = None
+	result['longitude'] = None
+	result['name'] = None
+	result['place_id'] = None
+	result['open_now'] = None
+	result['global_code'] = None
+	result['rating'] = None
+	result['address'] = None
+	result['types'] = None
+	return result
 
 def getAllPlaces(key = None, latitude = None, longitude = None, radius = 500, type=None, total = 20, keywords = [], token = None):
 
@@ -54,7 +66,7 @@ def getAllPlaces(key = None, latitude = None, longitude = None, radius = 500, ty
 	
 	if len(results['results']) > 0:
 		for result in results['results']:
-			data = {}
+			data = dataStruct()
 			if result.get('geometry') and result.get('geometry').get('location'):
 				data["latitude"] = result.get('geometry').get('location').get('lat')
 				data["longitude"] = result.get('geometry').get('location').get('lng')	
